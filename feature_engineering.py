@@ -18,20 +18,20 @@ from sklearn.pipeline import FeatureUnion,Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.base import BaseEstimator, TransformerMixin
 
-#用于生成特征的函数
+#functions used to generate features
 class my_features_functions:
 
     def __init__(self):
         #print(self.__str__())
         return
 
-    #计算价量相关性
+    #corrcoef
     def p2vol(self,open_price,high_price,low_price,close_price,vol):
         price=np.array(close_price)
         vol=np.array(vol)
         return np.corrcoef(price,vol)[0][1]
 
-    #计算高价对低价的回归系数
+    #high to low
     def low2high(self,open_price,high_price,low_price,close_price,vol):
         low=np.array(low_price)
         high=np.array(high_price)
